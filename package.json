@@ -1,0 +1,26 @@
+{
+  "name": "fotosite",
+  "version": "1.0.0",
+  "description": "Fred seine foto seite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredlahde/fotosite.git"
+  },
+  "author": "Fred lahde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredlahde/fotosite/issues"
+  },
+  "homepage": "https://github.com/fredlahde/fotosite#readme",
+  "dependencies": {
+    "@kloudsoftware/eisen": "^1.0.15"
+  },
+  "devDependencies": {
+    "sass": "^1.18.0",
+    "typescript": "^3.4.3"
+  }
+}
