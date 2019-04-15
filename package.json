@@ -20,6 +20,7 @@
     "@kloudsoftware/eisen": "^1.0.15"
   },
   "devDependencies": {
+    "parcel-plugin-static-files-copy": "^2.0.0",
     "sass": "^1.18.0",
     "typescript": "^3.4.3"
   }
