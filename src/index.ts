@@ -25,8 +25,9 @@ app.init();
 
 const nImgNodes = 9;
 const macroImages = getMarcoPhotos(false);
+const placeholder =  "http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif";
 const imgNodes = Array.from(Array(nImgNodes).keys()).map(i => {
-    const imageSrc = macroImages[i] != undefined ? macroImages[i] : "http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif";
+    const imageSrc = macroImages[i] != undefined ? macroImages[i] : placeholder;
     return app.k("img", { attrs: [src(imageSrc)] });
 });
 
