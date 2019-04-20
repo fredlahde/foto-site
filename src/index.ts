@@ -1,32 +1,48 @@
-import { VApp, VNodeBuilder, Component, Renderer, cssClass, Attribute } from '@kloudsoftware/eisen';
+import { VApp, VNodeBuilder, Component, Renderer, cssClass, Attribute, src } from '@kloudsoftware/eisen';
 
-function chunkArrayIntoThree<T>(arr: Array<T>): Array<Array<T>> {
-    const chunkSize = Math.floor(arr.length / 3);
+function computeImgCols<T>(arr: Array<T>): Array<Array<T>> {
+    let ret: T[][] = [];
+    for (let i = 0; i < 3; i++) {
+        ret[i] = []
+    }
+    for (let i = 2; i < arr.length; i += 3) {
+        ret[0].push(arr[i - 2])
+        ret[1].push(arr[i - 1])
+        ret[2].push(arr[i])
+    }
 
-    const arr1 = arr.slice(0, chunkSize);
-    const arr2 = arr.slice(chunkSize, chunkSize * 2);
-    const arr3 = arr.slice(chunkSize * 2, chunkSize * 3);
-
-    return [arr1, arr2, arr3];
+    return ret;
 }
+
+function getMarcoPhotos(fullSize: boolean): Array<string> {
+    return Array.from(Array(6).keys())
+        .map(e => e + 1)
+        .map(e => fullSize ? `macro/${e}.jpg` : `macro/${e}-small.jpg`)
+}
+
 const app = new VApp("target", new Renderer());
 app.init();
 
-const nImgNodes = 21;
-const imgNodes = Array.from(Array(nImgNodes).keys()).map(_ => app.k("img", { attrs: [new Attribute("src", "placeholder.png")] }));
+const nImgNodes = 9;
+const macroImages = getMarcoPhotos(false);
+const imgNodes = Array.from(Array(nImgNodes).keys()).map(i => {
+    const imageSrc = macroImages[i] != undefined ? macroImages[i] : "http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif";
+    return app.k("img", { attrs: [src(imageSrc)] });
+});
 
-const imgArrays = chunkArrayIntoThree(imgNodes);
+const imgCols = computeImgCols(imgNodes);
+console.log(imgCols);
 const mainDiv = app.k("div", { attrs: [cssClass("container center-container")] }, [
-    app.k("h1", { value: "Freds fotos" }),
+    app.k("h1", { value: "Freds fotos", attrs: [cssClass("site-heading")] }),
     app.k("div", { attrs: [cssClass("row")] }, [
         app.k("div", { attrs: [cssClass("column")] }, [
-            ...imgArrays[0]
+            ...imgCols[0]
         ]),
         app.k("div", { attrs: [cssClass("column")] }, [
-            ...imgArrays[1]
+            ...imgCols[1]
         ]),
         app.k("div", { attrs: [cssClass("column")] }, [
-            ...imgArrays[2]
+            ...imgCols[2]
         ]),
     ]),
 ]);

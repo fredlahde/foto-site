@@ -177,6 +177,7 @@ html, body {
 }
 
 .row {
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
@@ -184,13 +185,20 @@ html, body {
 
 .column {
     flex: 25%;
-    max-width: 25%;
+    max-width: 200px;
     padding: 0 4px;
 }
 
 .column img {
     margin-top: 8px;
     vertical-align: middle;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.site-heading {
+    margin-top: 2rem;
 }
 
 @media screen and (max-width: 800px) {
