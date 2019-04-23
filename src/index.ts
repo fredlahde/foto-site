@@ -34,7 +34,7 @@ const imgNodes = Array.from(Array(nImgNodes).keys()).map(i => {
 const imgCols = computeImgCols(imgNodes);
 console.log(imgCols);
 const mainDiv = app.k("div", { attrs: [cssClass("container center-container")] }, [
-    app.k("h1", { value: "Freds fotos", attrs: [cssClass("site-heading")] }),
+    app.k("h1", { value: "Fred's Photos", attrs: [cssClass("site-heading")] }),
     app.k("div", { attrs: [cssClass("row")] }, [
         app.k("div", { attrs: [cssClass("column")] }, [
             ...imgCols[0]
@@ -48,4 +48,5 @@ const mainDiv = app.k("div", { attrs: [cssClass("container center-container")] }
     ]),
 ]);
 
+document.title = "Fred's Photos";
 app.rootNode.appendChild(mainDiv);
