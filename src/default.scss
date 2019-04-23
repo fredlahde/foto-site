@@ -214,3 +214,75 @@ html, body {
         max-width: 100%;
     }
 }
+
+.imgStyle {
+    max-height: 85vh;
+}
+
+.titleCenter {
+    text-align: center;
+}
+
+.contentDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtext {
+    font-style: italic;
+    font-size: .8rem;
+    margin-top: .1rem;
+    padding-bottom: 1em;
+}
+
+.lightBoxStyleImg {
+    position: fixed;
+    z-index: 2;
+    max-width: 90%;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lightBoxStyleDiv {
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, 0.85);
+    z-index: 1;
+    color: white;
+}
+
+.arrowSvg {
+    filter: invert(1);
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    max-width: 5%;
+}
+
+.arrowSvgLeft {
+    left: 0vw;
+    @include transform(scaleX(-1));
+}
+
+.arrowSvgRight {
+    max-width: 5%;
+    filter: invert(1);
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 95vw;
+}
+
+.hidden {
+    visibility: hidden;
+}

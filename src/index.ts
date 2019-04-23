@@ -1,4 +1,5 @@
 import { VApp, VNodeBuilder, Component, Renderer, cssClass, Attribute, src } from '@kloudsoftware/eisen';
+import { LightBox } from './plugins/LightBox';
 
 function computeImgCols<T>(arr: Array<T>): Array<Array<T>> {
     let ret: T[][] = [];
@@ -21,14 +22,19 @@ function getMarcoPhotos(fullSize: boolean): Array<string> {
 }
 
 const app = new VApp("target", new Renderer());
+const lightbox = new LightBox();
 app.init();
 
 const nImgNodes = 9;
 const macroImages = getMarcoPhotos(false);
-const placeholder =  "http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif";
+const placeholder =  "https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif";
 const imgNodes = Array.from(Array(nImgNodes).keys()).map(i => {
     const imageSrc = macroImages[i] != undefined ? macroImages[i] : placeholder;
-    return app.k("img", { attrs: [src(imageSrc)] });
+    const node = app.k("img", { attrs: [src(imageSrc)] });
+    if (macroImages[i] != undefined) {
+        lightbox.addImage(node);
+    }
+    return node;
 });
 
 const imgCols = computeImgCols(imgNodes);
