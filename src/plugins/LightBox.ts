@@ -16,7 +16,6 @@ export class LightBox {
     public onClickFunc = (event: Event, node: VNode) => {
         this.current = node;
         node.app.mountComponent(new LightboxComponent(this), node.app.rootNode, new Props(node.app));
-        console.log("clicked on ", node)
     }
 
     getNextImage = (): VNode => {

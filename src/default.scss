@@ -125,11 +125,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-body {
-    font-family: 'RobotoRegular';
-    font-weight: normal;
-    font-style: normal;
-}
 
 .router-btn {
     text-align:center;
@@ -161,9 +156,12 @@ a {
     margin-right: auto;
 }
 
+.full-width {
+    width: 100vw;
+}
+
 .container {
     display: flex;
-    width: 100vw;
 }
 
 .center-container {
@@ -177,10 +175,10 @@ html, body {
 }
 
 .row {
-    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
+    margin-bottom: 8px;
 }
 
 .column {
@@ -198,7 +196,7 @@ html, body {
 }
 
 .site-heading {
-    margin-top: 2rem;
+    margin: 2rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -285,4 +283,18 @@ html, body {
 
 .hidden {
     visibility: hidden;
+}
+
+.wrapper {
+    box-shadow: 0px 4px 12px 0px #00000057;
+    margin-bottom: 3em;
+}
+
+.subtitle {
+    align-self: flex-start;
+    padding: 8px;
+}
+
+body {
+    font-family: Arial, Helvetica, "sans-serif";
 }

@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/fredlahde/fotosite#readme",
   "dependencies": {
-    "@kloudsoftware/eisen": "^1.0.15"
+    "@kloudsoftware/eisen": "^1.0.25"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
