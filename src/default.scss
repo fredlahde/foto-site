@@ -19,37 +19,8 @@ $grey-darker: #949ea8;
 $grey-darkest: #3D4852;
 $black: #22292F;
 
-$blue: #3490DC;
-$blue-lightest: #EFF8FF;
-$blue-lighter: #ccf0ff;
-$blue-light: #3490dc;
-$blue-dark: #2779BD;
-$blue-darker: #266fb3;
-$blue-darkest: #12283A;
-
-$red: #B94848;
-$red-lightest: #fcebea;
-$red-lighter: #f9acaa;
-$red-light: #EF5753;
-$red-dark: #9b4e4e;
-$red-darker: #621B18;
-$red-darkest: #3B0D0C;
-
-$orange: #F6993F;
-$orange-lightest: #FFF5EB;
-$orange-lighter: #FCD9B6;
-$orange-light: #FAAD63;
-$orange-dark: #DE751F;
-$orange-darker: #613B1F;
-$orange-darkest: #462A16;
-
-$green: #38C172;
-$green-lightest: #E3FCEC;
-$green-lighter: #A2F5BF;
-$green-light: #51D88A;
-$green-dark: #1F9D55;
-$green-darker: #1A4731;
-$green-darkest: #0F2F21;
+$main-color: #01161E;
+$main-color-shade: #FBFBFB;
 
 $border-radius-none: 0;
 $border-radius-sm: .125rem;
@@ -99,27 +70,6 @@ $border-radius-full: 9999px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.btn {
-    margin-top: .5em;
-    border-radius: $border-radius-default;
-    text-decoration:none;
-	  text-shadow:0px 1px 0px $green-darker;
-    min-height:3em;
-}
-
-.btn:hover {
-    filter: brightness(110%);
-}
-
-.btn-confirm {
-    background-color: $green;
-    border-color: darkgreen;
-    color: white;
-}
-
-.error {
-    border-color: red;
-}
 h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
     margin: 0;
@@ -197,6 +147,7 @@ html, body {
 
 .site-heading {
     margin: 2rem;
+    color: $main-color-shade;
 }
 
 @media screen and (max-width: 800px) {
@@ -286,8 +237,8 @@ html, body {
 }
 
 .wrapper {
-    box-shadow: 0px 4px 12px 0px #00000057;
     margin-bottom: 3em;
+    background-color: $main-color-shade;
 }
 
 .subtitle {
@@ -297,4 +248,58 @@ html, body {
 
 body {
     font-family: Arial, Helvetica, "sans-serif";
+    background-color: $main-color;
+}
+
+img {
+    width: 20em;
+}
+
+.heading {
+    margin-left: 0;
+    height: 2em;
+    background-color: $main-color-shade;
+    align-self: flex-start;
+    display: flex;
+}
+
+.heading > h3 {
+    margin: auto 2.5em;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+    border-left: 1em solid $main-color-shade;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+    border-right: 1em solid $main-color-shade;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    border-bottom: 2em solid $main-color-shade;
+    transform: translate(-2em, 0);
+}
+
+.arrow-up-right {
+    transform: translate(-2em, 0);
+}
+
+.arrow-up-left {
+    transform: translate(2em, 0);
+}
+
+.heading-container {
+    display: flex;
 }

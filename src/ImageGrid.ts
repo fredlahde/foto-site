@@ -50,25 +50,39 @@ export class ImageGrid extends Component {
         });
     }
 
+    private buildHeading(app: VApp): VNode {
+        return app.k("div", { attrs: [cssClass("heading-container")] }, [
+            app.k("div", { attrs: [cssClass("arrow-up arrow-up-left")] }),
+            app.k("div", { attrs: [cssClass("heading")] }, [
+                app.k("h3", { value: this.title })
+            ]),
+            app.k("div", { attrs: [cssClass("arrow-up arrow-up-right")] })
+        ]);
+    }
+
     build(app: VApp): ComponentBuildFunc {
         return (root: VNode, props: Props) => {
             const imgNodes = this.mapImagesToNodes(app);
             const imgCols = this.computeImgCols(imgNodes);
 
-            const grid = app.k("div", { attrs: [cssClass("wrapper container center-container")] }, [
-                app.k("h2", { attrs: [cssClass("subtitle")], value: this.title }),
-                app.k("div", { attrs: [cssClass("row")] }, [
-                    app.k("div", { attrs: [cssClass("column")] }, [
-                        ...imgCols[0]
-                    ]),
-                    app.k("div", { attrs: [cssClass("column")] }, [
-                        ...imgCols[1]
-                    ]),
-                    app.k("div", { attrs: [cssClass("column")] }, [
-                        ...imgCols[2]
-                    ]),
-                ])
-            ]);
+            const heading = this.buildHeading(app);
+            const grid =
+                app.k("div", {}, [
+                    heading,
+                    app.k("div", { attrs: [cssClass("wrapper container center-container")] }, [
+                        app.k("div", { attrs: [cssClass("row")] }, [
+                            app.k("div", { attrs: [cssClass("column")] }, [
+                                ...imgCols[0]
+                            ]),
+                            app.k("div", { attrs: [cssClass("column")] }, [
+                                ...imgCols[1]
+                            ]),
+                            app.k("div", { attrs: [cssClass("column")] }, [
+                                ...imgCols[2]
+                            ]),
+                        ])
+                    ])
+                ]);
 
             root.appendChild(grid);
 

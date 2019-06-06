@@ -18,7 +18,7 @@ const mainDiv = app.k("div", { attrs: [cssClass("container center-container full
 ]);
 
 app.mountComponent(new ImageGrid(macroImages, "Macro"), mainDiv, new Props(app, new Map()));
-app.mountComponent(new ImageGrid(macroImages, "Fred"), mainDiv, new Props(app, new Map()));
+app.mountComponent(new ImageGrid(macroImages, "Test"), mainDiv, new Props(app, new Map()));
 
 document.title = "Fred's Photos";
 app.rootNode.appendChild(mainDiv);
