@@ -5,8 +5,8 @@ export const placeholder = "https://upload.wikimedia.org/wikipedia/commons/c/ce/
 
 export class ImageGrid extends Component {
     images: string[];
-    lightbox: LightBox;
     title: string;
+    lightbox: LightBox;
 
     constructor(images: string[], title: string) {
         super();
@@ -36,7 +36,6 @@ export class ImageGrid extends Component {
             push(ret, 2, arr[i]);
         }
 
-        console.log(ret);
         return ret;
     }
 
@@ -57,7 +56,7 @@ export class ImageGrid extends Component {
             const imgCols = this.computeImgCols(imgNodes);
 
             const grid = app.k("div", { attrs: [cssClass("wrapper container center-container")] }, [
-                app.k("h2", { attrs: [cssClass("subtitle")], value: "Macro" }),
+                app.k("h2", { attrs: [cssClass("subtitle")], value: this.title }),
                 app.k("div", { attrs: [cssClass("row")] }, [
                     app.k("div", { attrs: [cssClass("column")] }, [
                         ...imgCols[0]
