@@ -15,20 +15,20 @@ function getMarcoPhotos(fullSize: boolean): Photo[] {
 function getExcercisePhotos(): Photo[] {
     const exercise_photos = [
         "architektur_lahde.jpg",
-        "fotokunst_lahde.jpg",
-        "landschaft_lahde.jpg",
-        "menschen_lahde.jpg",
-        "monochrom_lahde.jpg",
-        "muster_lahde.jpg",
-        "produktfoto_lahde.jpg",
-        "schaerfentiefe_lahde.jpg",
-        "standort_oben_lahde.jpg",
-        "standort_unten_lahde.jpg",
-        "symmetrie_lahde.jpg",
-        "wahlbild_lahde.jpg",
         "weich_hartlicht_lahde_1.jpg",
         "weich_hartlicht_lahde_2.jpg",
+        "produktfoto_lahde.jpg",
+        "monochrom_lahde.jpg",
+        "standort_oben_lahde.jpg",
+        "standort_unten_lahde.jpg",
+        "muster_lahde.jpg",
+        "symmetrie_lahde.jpg",
+        "menschen_lahde.jpg",
+        "landschaft_lahde.jpg",
+        "fotokunst_lahde.jpg",
         "zwei_gesichter_lahde.jpg",
+        "schaerfentiefe_lahde.jpg",
+        "wahlbild_lahde.jpg",
     ];
 
     return exercise_photos.map(f => new Photo(`exercise/${f}`, f.replace(".jpg", "")));
