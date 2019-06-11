@@ -13,7 +13,7 @@ app.init();
 
 const macroImages = getMarcoPhotos(false);
 
-const mainDiv = app.k("div", { attrs: [cssClass("container center-container full-width")] }, [
+const mainDiv = app.k("div", { attrs: [cssClass("container center-container")] }, [
     app.k("h1", { value: "Fred's Photos", attrs: [cssClass("site-heading")] }),
 ]);
 

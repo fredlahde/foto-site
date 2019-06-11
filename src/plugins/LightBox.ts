@@ -57,6 +57,9 @@ class LightboxComponent extends Component {
             lightBoxOpaque.addEventlistener("click", () => app.unmountComponent(root));
             root.appendChild(lightBoxOpaque);
 
+            let heading = app.k("h3", { value: "fooo", attrs: [cssClass("photo-heading")] });
+            lightBoxOpaque.appendChild(heading);
+
             let clone = app.k("img", { attrs: [src(getSrcFromAttributes(this.lightBox.current.$getAttrs()))] })
             lightBoxOpaque.appendChild(clone);
             clone.addClass(classes.lightBoxImage)
