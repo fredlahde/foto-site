@@ -43,6 +43,10 @@ const getSrcFromAttributes = (attrs: Array<Attribute>): string => {
     return attrs.filter(attr => attr.attrName === "src").map(attr => attr.attrValue)[0];
 }
 
+const getAltFromAttributes = (attrs: Array<Attribute>): string => {
+    return attrs.filter(attr => attr.attrName === "alt").map(attr => attr.attrValue)[0];
+}
+
 class LightboxComponent extends Component {
     lightBox: LightBox;
 
@@ -57,6 +61,9 @@ class LightboxComponent extends Component {
             lightBoxOpaque.addEventlistener("click", () => app.unmountComponent(root));
             root.appendChild(lightBoxOpaque);
 
+            let desc = app.k("h3", { value: getAltFromAttributes(this.lightBox.current.$getAttrs()), attrs: [cssClass("photo-heading")]})
+            lightBoxOpaque.appendChild(desc);
+
             let clone = app.k("img", { attrs: [src(getSrcFromAttributes(this.lightBox.current.$getAttrs()))] })
             lightBoxOpaque.appendChild(clone);
             clone.addClass(classes.lightBoxImage)
@@ -69,12 +76,14 @@ class LightboxComponent extends Component {
             const handleNextImg = () => {
                 const next = this.lightBox.getNextImage();
                 clone.setAttribute("src", getSrcFromAttributes(next.$getAttrs()));
+                desc.setInnerHtml(getAltFromAttributes(next.$getAttrs()));
                 this.lightBox.current = next;
             }
 
             const handlePrevImg = () => {
                 const prev = this.lightBox.getPrevImage();
                 clone.setAttribute("src", getSrcFromAttributes(prev.$getAttrs()));
+                desc.setInnerHtml(getAltFromAttributes(prev.$getAttrs()));
                 this.lightBox.current = prev;
             }
 

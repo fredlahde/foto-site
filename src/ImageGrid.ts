@@ -1,14 +1,35 @@
-import { Component, VApp, ComponentBuildFunc, VNode, Props, src, cssClass } from "@kloudsoftware/eisen";
+import { Component, VApp, ComponentBuildFunc, VNode, Props, src, cssClass, Attribute } from "@kloudsoftware/eisen";
 import { LightBox } from "./plugins/LightBox";
 
 export const placeholder = "https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif";
 
+
+export class Photo {
+    public file_name: string;
+    public desc: string;
+
+    constructor(file_name: string, desc: string = undefined) {
+        if (file_name.includes("undefined")) {
+            this.file_name = placeholder;
+            this.desc = "";
+            return;
+        }
+        this.file_name = file_name;
+        if (desc == undefined) {
+            this.desc = file_name;
+            return;
+        }
+
+        this.desc = desc;
+    }
+}
+
 export class ImageGrid extends Component {
-    images: string[];
+    images: Photo[];
     title: string;
     lightbox: LightBox;
 
-    constructor(images: string[], title: string) {
+    constructor(images: Photo[], title: string) {
         super();
         this.images = images;
         this.title = title;
@@ -41,9 +62,10 @@ export class ImageGrid extends Component {
 
     private mapImagesToNodes(app: VApp): VNode[] {
         return Array.from(Array(this.nImgs()).keys()).map(i => {
-            const imageSrc = this.images[i] != undefined ? this.images[i] : placeholder;
-            const node = app.k("img", { attrs: [src(imageSrc)] });
-            if (this.images[i] != undefined) {
+            const imageSrc = this.images[i] != undefined ? this.images[i].file_name : placeholder;
+            const desc = this.images[i] != undefined ? this.images[i].desc : "";
+            const node = app.k("img", { attrs: [src(imageSrc), new Attribute("alt", desc)] });
+            if (this.images[i] != undefined && this.images[i].file_name != placeholder) {
                 this.lightbox.addImage(node);
             }
             return node;

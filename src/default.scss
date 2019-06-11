@@ -190,7 +190,7 @@ html, body {
     position: fixed;
     z-index: 2;
     max-width: 90%;
-    max-height: 95vh;
+    max-height: 85vh;
     width: auto;
     height: auto;
 
@@ -302,4 +302,11 @@ img {
 
 .heading-container {
     display: flex;
+}
+
+.photo-heading {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 3%;
 }
